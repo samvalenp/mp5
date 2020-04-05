@@ -3,6 +3,7 @@
 '''Exectuion Command: spark-submit TitleCountSpark.py stopwords.txt delimiters.txt dataset/titles/ dataset/output'''
 
 import sys
+import re
 from pyspark import SparkConf, SparkContext
 
 stopWordsPath = sys.argv[1]
@@ -25,7 +26,7 @@ lines = sc.textFile(sys.argv[3],1)
 #START: tokenize, lowercase, stopwords
 
 # tokenize
-words1 = lines.flatMap(lambda line: line.split(" "))
+words1 = lines.flatMap(lambda line: re.split(delimiters, line))
 # lowercase
 words2 = words1.map(lambda word: word.lower())
 # stopwords
