@@ -10,7 +10,7 @@ stopWordsPath = sys.argv[1]
 delimitersPath = sys.argv[2]
 
 stopWords = set()
-stopwords.add('')
+stopWords.add('')
 with open(stopWordsPath) as f:
 	for linea in f:
 		stopWords.add(linea)
