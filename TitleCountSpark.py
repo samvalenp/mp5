@@ -10,6 +10,7 @@ stopWordsPath = sys.argv[1]
 delimitersPath = sys.argv[2]
 
 stopWords = set()
+stopwords.add('')
 with open(stopWordsPath) as f:
 	for linea in f:
 		stopWords.add(linea)
@@ -27,9 +28,6 @@ lines = sc.textFile(sys.argv[3],1)
 
 # tokenize
 words1 = lines.flatMap(lambda line: re.split(r'[\t,;\.\?!-:@\[\]\(\)\{\}\_\*/]', line))
-first = words1.take(100)
-firstrdd = sc.parallelize(first)
-firstrdd.saveAsTextFile('hola2')
 
 # lowercase
 words2 = words1.map(lambda word: word.lower())
@@ -38,7 +36,7 @@ words3 = words2.filter(lambda word: word not in stopWords)
 # count the occurrence of each word
 wordCounts = words3.map(lambda word: (word, 1)).reduceByKey(lambda a,b: a+b)
 # top 10
-top = wordCounts.takeOrdered(10,lambda x: -x[1])
+top = wordCounts.takeOrdered(200,lambda x: -x[1])
 toprdd = sc.parallelize(top)
 #END
 
