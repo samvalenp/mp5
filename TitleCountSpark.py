@@ -26,7 +26,11 @@ lines = sc.textFile(sys.argv[3],1)
 #START: tokenize, lowercase, stopwords
 
 # tokenize
-words1 = lines.flatMap(lambda line: re.split(r'[\t,;\.\?!-:@\[]\(\)\{\}_\*/\s]\s*', line))
+words1 = lines.flatMap(lambda line: re.split(r'[\t,;\.\?!-:@\[]\(\)\{\}\_\*/\s]\s*', line))
+first = words1.take(100)
+firstrdd = sc.parallelize(first)
+firstrdd.saveAsTextFile('hola.txt')
+
 # lowercase
 words2 = words1.map(lambda word: word.lower())
 # stopwords
