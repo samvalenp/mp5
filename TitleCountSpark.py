@@ -29,7 +29,7 @@ lines = sc.textFile(sys.argv[3],1)
 words1 = lines.flatMap(lambda line: re.split(r'[_]', line))
 first = words1.take(100)
 firstrdd = sc.parallelize(first)
-firstrdd.saveAsTextFile('hola')
+firstrdd.saveAsTextFile('hola1')
 
 # lowercase
 words2 = words1.map(lambda word: word.lower())
