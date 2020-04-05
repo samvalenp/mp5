@@ -11,7 +11,7 @@ delimitersPath = sys.argv[2]
 stopWords = set()
 with open(stopWordsPath) as f:
 	for linea in f:
-		stopwords.add(linea)
+		stopWords.add(linea)
 
 with open(delimitersPath) as f:
 	delimiters = f.readLine()
