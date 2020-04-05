@@ -13,7 +13,7 @@ stopWords = set()
 stopWords.add('')
 with open(stopWordsPath) as f:
 	for linea in f:
-		stopWords.add(linea)
+		stopWords.add(linea.strip())
 
 with open(delimitersPath) as f:
 	delimiters = f.read()
