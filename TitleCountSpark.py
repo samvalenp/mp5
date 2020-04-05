@@ -40,7 +40,7 @@ top = wordCounts.takeOrdered(10,lambda x: -x[1])
 # outputFile = open(sys.argv[4],"w")
 
 #START
-topOut = top.sortByKey().map(lambda (word, count): word+ " " + str(count))
+topOut = top.sortByKey().map(lambda x: x[0]+ " " + str(x[1]))
 topOut.saveAsTextFile(sys.argv[4])
 
 #END
