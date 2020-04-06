@@ -8,7 +8,7 @@ from pyspark import SparkConf, SparkContext
 
 stopWordsPath = sys.argv[1]
 delimitersPath = sys.argv[2]
-ntitles = 5
+ntitles = 10
 
 stopWords = set()
 stopWords.add('')
