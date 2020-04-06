@@ -28,7 +28,7 @@ lines = sc.textFile(sys.argv[3],1)
 
 # tokenize
           #  	,;.?!-:@[](){}_*/
-words1 = lines.flatMap(lambda line: re.split('['+re.escape('\t,;.?!-:@[](){}_*/\s') + ']', line))
+words1 = lines.flatMap(lambda line: re.split('['+re.escape(r'[\s\t,;\.\?!-:@\[\]\(\)\{\}_\*/]', line.rstrip()))
 
 # lowercase
 words2 = words1.map(lambda word: word.lower())
