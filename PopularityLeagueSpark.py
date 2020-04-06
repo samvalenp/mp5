@@ -22,7 +22,7 @@ leagueIds = leagueIds.map(lambda a: (a.strip('\n'),1))
 linkedLeague = linked.join(leagueIds).map(lambda a: (a[0], a[1][0]))
 
 linkedLeague = linkedLeague.sortBy(lambda a: a[1]).map(lambda a: a[0]).zipWithIndex()
-linkedLeague = linkedLeague.sortByKey().map(lambda a: str(a[0]) + '\t' + a[1] + '\n')
+linkedLeague = linkedLeague.sortByKey().map(lambda a: str(a[0]) + '\t' + str(a[1]) + '\n')
 result = linkedLeague.take(leagueIds.count())
 
 
