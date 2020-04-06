@@ -9,10 +9,22 @@ sc = SparkContext(conf = conf)
 lines = sc.textFile(sys.argv[1], 1) 
 
 #TODO
+ntitles = 5
+
+lines = lines.map(lambda line: line.replace(':', ''))
+linked = lines.flatMap(lambda line: line.split()[1:])
+linked = linked.map(lambda link: (link, 1)).reduceByKey(lambda a,b: a+b)
+
+top = linked.takeOrdered(ntitles,lambda x: -x[1])
+toprdd = sc.parallelize(top)
 
 output = open(sys.argv[2], "w")
 
 #TODO
+topOut = toprdd.sortByKey().map(lambda x: x[0]+ "\t" + x[1])
+result = topOut.take(ntitles)
+for ele in result:	
+	output.write(ele+ '\n')
 #write results to output file. Foramt for each line: (key + \t + value +"\n")
 
 sc.stop()
