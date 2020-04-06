@@ -15,7 +15,7 @@ ans2 = lines.reduce(lambda a,b: a+b)
 count = lines.count()
 ans1 = ans2/count
 sumSq = squares.reduce(lambda a,b: a+b)
-ans5 = sumSq - (ans1*ans1)
+ans5 = (sumSq/count) - (ans1*ans1)
 #TODO
 
 outputFile = open(sys.argv[2],"w")
