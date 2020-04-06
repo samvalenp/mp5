@@ -16,7 +16,7 @@ with open(stopWordsPath) as f:
 		stopWords.add(linea.strip())
 
 with open(delimitersPath) as f:
-	delimiters = f.read()
+	delimiters = f.read().s
 
 conf = SparkConf().setMaster("local").setAppName("TitleCount")
 conf.set("spark.driver.bindAddress", "127.0.0.1")
@@ -28,7 +28,7 @@ lines = sc.textFile(sys.argv[3],1)
 
 # tokenize
           #  	,;.?!-:@[](){}_*/
-words1 = lines.flatMap(lambda line: re.split(r'[\s\t,;\.\?!-:@\[\]\(\)\{\}_\*/]', line.rstrip()))
+words1 = lines.flatMap(lambda line: re.split(re.escape(' 	,;.?!-:@[](){}_*/'), line.strip()))
 
 # lowercase
 words2 = words1.map(lambda word: word.lower())
