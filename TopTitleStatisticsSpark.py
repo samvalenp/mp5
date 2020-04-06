@@ -16,7 +16,7 @@ count = lines.count()
 ans1 = ans2/count
 sumSq = squares.reduce(lambda a,b: a+b)
 
-var1 = lines.map(lambda a: a-as1)
+var1 = lines.map(lambda a: a-ans1)
 asn5 = var1.map(lambda a: a*a).reduce(lambda a,b: a+b)
 asn5 = int(asn5/count)
 #TODO
