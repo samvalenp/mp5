@@ -28,7 +28,25 @@ lines = sc.textFile(sys.argv[3],1)
 
 # tokenize
           #  	,;.?!-:@[](){}_*/
-words1 = lines.flatMap(lambda line: re.split(re.escape(' 	,;.?!-:@[](){}_*/'), line.strip()))
+lines = lines.map(lambda line: line.replace("\t", " "))
+lines = lines.map(lambda line: line.replace(",", " "))
+lines = lines.map(lambda line: line.replace(";", " "))
+lines = lines.map(lambda line: line.replace(".", " "))
+lines = lines.map(lambda line: line.replace("?", " "))
+lines = lines.map(lambda line: line.replace("!", " "))
+lines = lines.map(lambda line: line.replace("-", " "))
+lines = lines.map(lambda line: line.replace(":", " "))
+lines = lines.map(lambda line: line.replace("@", " "))
+lines = lines.map(lambda line: line.replace("[", " "))
+lines = lines.map(lambda line: line.replace("]", " "))
+lines = lines.map(lambda line: line.replace("(", " "))
+lines = lines.map(lambda line: line.replace(")", " "))
+lines = lines.map(lambda line: line.replace("{", " "))
+lines = lines.map(lambda line: line.replace("}", " "))
+lines = lines.map(lambda line: line.replace("_", " "))
+lines = lines.map(lambda line: line.replace("*", " "))
+lines = lines.map(lambda line: line.replace("/", " "))
+words1 = lines.flatMap(lambda line: re.split(line.strip()))
 
 # lowercase
 words2 = words1.map(lambda word: word.lower())
