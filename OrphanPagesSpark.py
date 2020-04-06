@@ -9,6 +9,7 @@ sc = SparkContext(conf = conf)
 lines = sc.textFile(sys.argv[1], 1) 
 
 #TODO
+lines = lines.map(lambda line: line.replace(':', ''))
 linked = lines.flatMap(lambda line: line.split()[1:])
 linked = linked.map(lambda link: (link, 1))
 
