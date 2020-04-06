@@ -27,7 +27,7 @@ outputFile.write('Mean\t%s\n' % int(ans1))
 outputFile.write('Sum\t%s\n' % ans2)
 outputFile.write('Min\t%s\n' % ans3)
 outputFile.write('Max\t%s\n' % ans4)
-outputFile.write('Var\t%s\n' % ans5)
+outputFile.write('Var\t%s\n' % asn5)
 
 
 sc.stop()
