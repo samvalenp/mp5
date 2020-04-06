@@ -16,7 +16,7 @@ with open(stopWordsPath) as f:
 		stopWords.add(linea.strip())
 
 with open(delimitersPath) as f:
-	delimiters = f.read().s
+	delimiters = f.read()
 
 conf = SparkConf().setMaster("local").setAppName("TitleCount")
 conf.set("spark.driver.bindAddress", "127.0.0.1")
