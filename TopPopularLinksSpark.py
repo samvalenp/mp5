@@ -21,7 +21,7 @@ toprdd = sc.parallelize(top)
 output = open(sys.argv[2], "w")
 
 #TODO
-topOut = toprdd.sortByKey().map(lambda x: x[0]+ "\t" + x[1])
+topOut = toprdd.sortByKey().map(lambda x: str(x[0])+ "\t" + str(x[1]))
 result = topOut.take(ntitles)
 for ele in result:	
 	output.write(ele+ '\n')
