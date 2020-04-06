@@ -13,14 +13,14 @@ ans4 = lines.reduce(lambda a,b: max(a,b))
 ans3 = lines.reduce(lambda a,b: min(a,b))
 ans2 = lines.reduce(lambda a,b: a+b)
 count = lines.count()
-ans1 = int(ans2/count)
+ans1 = ans2/count
 sumSq = squares.reduce(lambda a,b: a+b)
 ans5 = int(sumSq/count) - int(ans1*ans1)
 #TODO
 
 outputFile = open(sys.argv[2],"w")
 
-outputFile.write('Mean\t%s\n' % ans1)
+outputFile.write('Mean\t%s\n' % int(ans1))
 outputFile.write('Sum\t%s\n' % ans2)
 outputFile.write('Min\t%s\n' % ans3)
 outputFile.write('Max\t%s\n' % ans4)
