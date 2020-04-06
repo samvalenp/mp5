@@ -27,7 +27,7 @@ output = open(sys.argv[2], "w")
 #TODO
 
 for ele in result:	
-	output.write(ele+ '\n')
+	output.write(ele)
 #write results to output file. Foramt for each line: (line+"\n")
 
 sc.stop()
