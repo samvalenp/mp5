@@ -13,8 +13,8 @@ lines = lines.map(lambda line: line.replace(':', ''))
 linked = lines.flatMap(lambda line: line.split()[1:])
 linked = linked.map(lambda link: (link, 1))
 
-linking = lines.map(lambda line: line.split()[1])
-linking = linking.map(lambda link: (link, 1))
+linking = lines.map(lambda line: line.split()[0])
+linking = linking.map(lambda link: (link, 0))
 
 together = linked.union(linking)
 together = together.reduceByKey(lambda a,b: a+b)
