@@ -46,7 +46,7 @@ lines = lines.map(lambda line: line.replace("}", " "))
 lines = lines.map(lambda line: line.replace("_", " "))
 lines = lines.map(lambda line: line.replace("*", " "))
 lines = lines.map(lambda line: line.replace("/", " "))
-words1 = lines.flatMap(lambda line: re.split(line.strip()))
+words1 = lines.flatMap(lambda line: line.strip().split())
 
 # lowercase
 words2 = words1.map(lambda word: word.lower())
