@@ -67,7 +67,7 @@ topOut = toprdd.sortByKey().map(lambda x: x[0]+ "\t" + str(x[1]))
 result = topOut.take(ntitles)
 
 for ele in result:	
-	outputFile.write(ele)
+	outputFile.write(ele+ '\n')
 
 #END
 #write results to output file. Foramt for each line: (line +"\n")
