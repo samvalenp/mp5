@@ -13,7 +13,7 @@ ans4 = lines.reduce(lambda a,b: max(a,b))
 ans3 = lines.reduce(lambda a,b: min(a,b))
 ans2 = lines.reduce(lambda a,b: a+b)
 count = lines.count()
-ans1 = ans2/count
+ans1 = int(ans2/count)
 sumSq = squares.reduce(lambda a,b: a+b)
 
 var1 = lines.map(lambda a: a-ans1)
